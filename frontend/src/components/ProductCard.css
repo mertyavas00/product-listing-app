@@ -1,0 +1,106 @@
+.product-card {
+  width: 300px;
+  /* border: 1px solid #EAEAEA; -> Kutu görünümünü kaldırmak için silindi */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); -> Gölgeyi kaldırmak için silindi */
+  border-radius: 8px;
+  /* Köşelerin yuvarlaklığı kalabilir, daha şık durur */
+  padding: 1rem;
+  /* İçeriğin kenarlara yapışmaması için boşluk kalmalı */
+  background-color: #fff;
+  font-family: 'Avenir', sans-serif;
+  text-align: left;
+  /* --- DEĞİŞİKLİK: Yazıları sola yasla --- */
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-container {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.product-details {
+  margin-top: 1rem;
+}
+
+.product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+}
+
+.color-picker {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* --- DEĞİŞİKLİK: Renk seçiciyi sola yasla --- */
+  gap: 0.5rem;
+}
+
+.color-swatches {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #f0f0f0;
+  transition: border-color 0.2s ease;
+}
+
+.color-swatch.active {
+  border-color: #000000;
+}
+
+.color-name {
+  font-family: 'Avenir', sans-serif;
+  font-size: 12px;
+  color: #555;
+  margin: 0;
+  height: 1.2em;
+}
+
+/* Rating.css'ten gelen bileşenin hizalaması */
+.rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* --- DEĞİŞİKLİK: Yıldızları ve puanı sola yasla --- */
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.no-image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #888;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}

@@ -1,0 +1,20 @@
+.rating-container {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.stars {
+  color: #eebe65f8;
+  /* Yıldızların rengi */
+  display: flex;
+  gap: 0.1rem;
+}
+
+.score-text {
+  font-family: 'Avenir', sans-serif;
+  font-size: 14px;
+  color: #555;
+}

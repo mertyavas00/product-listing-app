@@ -1,0 +1,101 @@
+.App {
+  width: 100%;
+  max-width: 1440px;
+  /* Maksimum genişlik */
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.main-title {
+  text-align: center;
+  font-family: 'Avenir', sans-serif;
+  font-weight: normal;
+  /* Book */
+  font-size: 45px;
+  margin-bottom: 2rem;
+}
+
+.status-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Dikeyde ortala */
+  gap: 2rem;
+  /* Elemanlar arası boşluk */
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group input {
+  border: none;
+  /* Kenarlıkları tamamen kaldır */
+  border-bottom: 1px solid #ccc;
+  /* Sadece alt çizgi */
+  border-radius: 0;
+  /* Köşe yuvarlaklığını iptal et */
+  padding: 0.5rem 0.2rem;
+  /* İç boşluğu ayarla */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 120px;
+  /* Genişliği ayarla */
+  background-color: transparent;
+  /* Arka planı şeffaf yap */
+  transition: border-color 0.3s ease;
+  /* Geçiş efekti */
+}
+
+.filter-group input:focus {
+  outline: none;
+  /* Tıklandığındaki varsayılan çerçeveyi kaldır */
+  border-bottom-color: #000;
+  /* Tıklandığında alt çizgi siyah olsun */
+}
+
+.filter-button {
+  padding: 0.6rem 2rem;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  /* İçi boş düğme */
+  color: #000;
+  border: 1px solid #000;
+  /* Siyah çerçeve */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #000;
+  /* Üzerine gelince içi dolsun */
+  color: #fff;
+}
+
+    /* Number input'lardaki okları (spinners) gizlemek için */
+  
+    /* Chrome, Safari, Edge, Opera için */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  
