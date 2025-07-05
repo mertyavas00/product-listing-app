@@ -19,9 +19,7 @@ function App() {
         params.append("minPrice", currentFilters.minPrice);
       if (currentFilters.maxPrice)
         params.append("maxPrice", currentFilters.maxPrice);
-      const response = await fetch(
-        `http://localhost:5000/api/products?${params.toString()}`
-      );
+      const response = await fetch(`/api/products?${params.toString()}`);
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
