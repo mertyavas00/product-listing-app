@@ -5,6 +5,7 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios"); // API isteği için axios'u ekledik
+const { channel } = require("diagnostics_channel");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,21 +14,35 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+let cachedGoldPrice = null;
+let lastFetchtTimestamp = 0;
+const CACHE_DURATION_MS = 10 * 60 * 1000;
+
 // --- Helper Function: Get Real-time Gold Price ---
 async function getGoldPrice() {
+  const now = Date.now();
+
+  if (
+    cachedGoldPrice !== null &&
+    now - lastFetchtTimestamp < CACHE_DURATION_MS
+  ) {
+    return cachedGoldPrice;
+  }
+
   try {
-    const apiKey = process.env.GOLD_API_KEY; // API anahtarını process.env'den güvenli bir şekilde alıyoruz
-    const response = await axios.get("https://www.goldapi.io/api/XAU/USD", {
-      headers: {
-        "x-access-token": apiKey,
-      },
-    });
-    // GoldAPI'den gelen yanıttan 24 ayar gram altın fiyatını alıyoruz.
-    return response.data.price_gram_24k;
+    const apiKey = process.env.GOLD_API_KEY;
+    const apiUrl = `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=USD&currencies=XAU`;
+    const response = await axios.get(apiUrl);
+
+    const pricePerOunce = 1 / response.data.rates.XAU;
+    const pricePerGram = pricePerOunce / 31.1035;
+
+    cachedGoldPrice = pricePerGram;
+    lastFetchtTimestamp = now;
+
+    return pricePerGram;
   } catch (error) {
-    console.error("Error fetching gold price:", error.message);
-    // Hata durumunda null dönerek ana fonksiyonda kontrol sağlıyoruz.
-    return null;
+    return cachedGoldPrice;
   }
 }
 
