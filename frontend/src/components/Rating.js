@@ -4,21 +4,17 @@ import "./Rating.css";
 
 function Rating({ score }) {
   const stars = [];
-  const roundedScore = Math.round(score * 2) / 2; // Skoru 0.5'in katlarına yuvarla
+  const roundedScore = Math.round(score * 2) / 2;
 
-  //5 yıldız için döngü
   for (let i = 1; i <= 5; i++) {
     if (i <= roundedScore) {
-      //Tam yıldız
       stars.push(<BsStarFill key={i} />);
     } else if (
       i === Math.ceil(roundedScore) &&
       !Number.isInteger(roundedScore)
     ) {
-      //Yarım yıldız
       stars.push(<BsStarHalf key={i} />);
     } else {
-      //Boş yıldız
       stars.push(<BsStar key={i} />);
     }
   }

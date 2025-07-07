@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import "./ProductList.css";
 
 function ProductList({ products }) {
-  console.log("ProductList'e gelen veri:", products);
   return (
     <Swiper
       modules={[Navigation, Pagination]}
