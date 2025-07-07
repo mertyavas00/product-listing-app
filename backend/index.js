@@ -14,7 +14,7 @@ app.use(express.json());
 
 let cachedGoldPrice = null;
 let lastFetchTimestamp = 0;
-const CACHE_DURATION_MS = 10 * 60 * 1000;
+const CACHE_DURATION_MS = 60 * 60 * 1000;
 
 async function getGoldPrice() {
   const now = Date.now();
